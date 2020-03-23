@@ -1,4 +1,6 @@
-# 4
+
+## How to contribute
+create a new branch on your local, make your changes, push to remote, make a pull request
 
 ## Project setup
 ```
