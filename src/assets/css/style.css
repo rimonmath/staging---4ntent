@@ -1,0 +1,13 @@
+.my-loading {
+  text-align: center;
+  padding: 55px;
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.25s;
+}
+.modal-enter, .modal-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  background-color: none;
+  opacity: 0;
+}
