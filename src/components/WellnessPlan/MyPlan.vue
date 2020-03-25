@@ -5,12 +5,12 @@
     <v-avatar color="indigo">
       <v-icon dark>mdi-account-circle</v-icon>
     </v-avatar>
-    <span>{{ plan.name }}</span>
+    <span class="ml-1">{{ plan.name }}</span>
 
     <v-avatar color="indigo" class="ml-3">
       <v-icon dark>mdi-account-circle</v-icon>
     </v-avatar>
-    <span>{{ plan.mentor }}</span>
+    <span class="ml-1">{{ plan.mentor }}</span>
 
     <v-card class="my-plan-card mt-4">
       <v-card-text>

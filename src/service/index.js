@@ -1,7 +1,7 @@
-import {axiosPrivate} from './axiosInstance';
+import { axiosPrivate } from "./axiosInstance";
 
 export default {
-  getMyPlan () {
-    return axiosPrivate.get ('../../public/api/my-plan.json');
-  },
+  getMyPlan() {
+    return axiosPrivate.get("/my-plan.json");
+  }
 };

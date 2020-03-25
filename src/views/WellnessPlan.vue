@@ -1,7 +1,6 @@
 <template>
   <div>
-    WP view
-    <my-wellness-plan></my-wellness-plan>
+    <my-wellness-plan planId="$route.params.planId"></my-wellness-plan>
   </div>
 </template>
 

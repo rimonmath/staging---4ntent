@@ -1,85 +1,87 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
 //a change
 
-Vue.use (VueRouter);
-const mode = 'history';
+Vue.use(VueRouter);
+const mode = "history";
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: Home,
+    path: "/",
+    name: "home",
+    component: Home
   },
   {
-    path: '/about',
-    name: 'about',
+    path: "/about",
+    name: "about",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import (/* webpackChunkName: "about" */ '../views/About.vue'),
+      import(/* webpackChunkName: "about" */ "../views/About.vue")
+  },
+  // {
+  //   path: "/test",
+  //   name: "test",
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import(/* webpackChunkName: "about" */ "../views/Test.vue")
+  // },
+  {
+    path: "/progress",
+    name: "prog",
+    component: () => import(/* webpackChunkName: "about" */ "../views/Prog.vue")
   },
   {
-    path: '/test',
-    name: 'test',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: "/schedule",
+    name: "schedule",
     component: () =>
-      import (/* webpackChunkName: "about" */ '../views/Test.vue'),
+      import(/* webpackChunkName: "about" */ "../views/Schedule.vue")
   },
   {
-    path: '/progress',
-    name: 'prog',
+    path: "/trackers",
+    name: "trackers",
     component: () =>
-      import (/* webpackChunkName: "about" */ '../views/Prog.vue'),
+      import(/* webpackChunkName: "about" */ "../views/Trackers.vue")
   },
   {
-    path: '/schedule',
-    name: 'schedule',
+    path: "/wellness-plan/:planId",
+    name: "wellness-plan",
     component: () =>
-      import (/* webpackChunkName: "about" */ '../views/Schedule.vue'),
+      import(/* webpackChunkName: "about" */ "../views/WellnessPlan.vue")
   },
   {
-    path: '/trackers',
-    name: 'trackers',
+    path: "/giving-back",
+    name: "giving-back",
     component: () =>
-      import (/* webpackChunkName: "about" */ '../views/Trackers.vue'),
+      import(/* webpackChunkName: "about" */ "../views/GivingBack.vue")
   },
   {
-    path: '/wellness-plan',
-    name: 'wellness-plan',
+    path: "/ntention-setter-access",
+    name: "ntention-setter-access",
     component: () =>
-      import (
-        /* webpackChunkName: "about" */ '../views/WellnessPlan/WellnessPlan.vue'
-      ),
+      import(
+        /* webpackChunkName: "about" */ "../views/NtentionSetterAccess.vue"
+      )
   },
   {
-    path: '/giving-back',
-    name: 'giving-back',
+    path: "/my-ntention-setters",
+    name: "my-ntention-setters",
     component: () =>
-      import (/* webpackChunkName: "about" */ '../views/GivingBack.vue'),
+      import(/* webpackChunkName: "about" */ "../views/MyNtentionSetters.vue")
   },
   {
-    path: '/ntention-setter-access',
-    name: 'ntention-setter-access',
+    path: "/settings",
+    name: "settings",
     component: () =>
-      import (
-        /* webpackChunkName: "about" */ '../views/NtentionSetterAccess.vue'
-      ),
-  },
-  {
-    path: '/settings',
-    name: 'settings',
-    component: () =>
-      import (/* webpackChunkName: "about" */ '../views/Settings/Settings.vue'),
-  },
+      import(/* webpackChunkName: "about" */ "../views/Settings.vue")
+  }
 ];
 
-const router = new VueRouter ({
+const router = new VueRouter({
   routes,
-  mode,
+  mode
 });
 
 export default router;

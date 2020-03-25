@@ -1,79 +1,14 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer v-model="drawer" app class="my-navigation-drawer">
       <v-list dense>
-        <router-link :to="{name: 'prog'}">
-          <v-list-item v-on:click="drawer = false" link>
+        <router-link :to="ni.to" v-for="(ni, i) in navItems" :key="i">
+          <v-list-item v-on:click="handleNavItemCLick" link>
             <v-list-item-action>
-              <v-icon>mdi-chart-line-variant</v-icon>
+              <v-icon>{{ ni.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>Progress</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </router-link>
-        <router-link :to="{name: 'schedule'}">
-          <v-list-item v-on:click="drawer = false" link>
-            <v-list-item-action>
-              <v-icon>mdi-calendar</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Schedule</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </router-link>
-
-        <router-link :to="{name: 'trackers'}">
-          <v-list-item v-on:click="drawer = false" link>
-            <v-list-item-action>
-              <v-icon>mdi-apps</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Trackers</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </router-link>
-
-        <router-link :to="{name: 'wellness-plan'}">
-          <v-list-item v-on:click="drawer = false" link>
-            <v-list-item-action>
-              <v-icon>mdi-spa</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Wellness Plan</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </router-link>
-
-        <router-link :to="{name: 'giving-back'}">
-          <v-list-item v-on:click="drawer = false" link>
-            <v-list-item-action>
-              <v-icon>mdi-charity</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Giving Back</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </router-link>
-
-        <router-link :to="{name: 'ntention-setter-access'}">
-          <v-list-item v-on:click="drawer = false" link>
-            <v-list-item-action>
-              <v-icon>mdi-ticket-percent</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>NTENTION Setter Access</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </router-link>
-
-        <router-link :to="{name: 'settings'}">
-          <v-list-item v-on:click="drawer = false" link>
-            <v-list-item-action>
-              <v-icon>mdi-account-box</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Settings</v-list-item-title>
+              <v-list-item-title>{{ ni.text }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </router-link>
@@ -86,14 +21,18 @@
     </v-app-bar>
 
     <v-content>
-      <v-container class="fill-height" fluid>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
+
+      <v-container class="fill-height" fluid v-if="false">
         <v-row align="center" justify="center">
           <v-col class="text-center">
             <v-content>
               <router-view></router-view>
             </v-content>
             <!-- <v-tooltip left>
-              <template v-slot:activator="{on}">
+              <template v-slot:activator="{ on }">
                 <v-btn :href="source" icon large target="_blank" v-on="on">
                   <v-icon large>mdi-code-tags</v-icon>
                 </v-btn>
@@ -102,7 +41,7 @@
             </v-tooltip>
 
             <v-tooltip right>
-              <template v-slot:activator="{on}">
+              <template v-slot:activator="{ on }">
                 <v-btn
                   icon
                   large
@@ -114,7 +53,7 @@
                 </v-btn>
               </template>
               <span>Codepen</span>
-            </v-tooltip>-->
+            </v-tooltip> -->
           </v-col>
         </v-row>
       </v-container>
@@ -132,8 +71,72 @@ export default {
   },
   data: () => ({
     drawer: null,
-    headFootColor: "#1f82e5"
-  })
+    isMobile: false,
+    headFootColor: "#1f82e5",
+    navItems: [
+      {
+        to: "/progress",
+        text: "Progress",
+        icon: "mdi-chart-line-variant"
+      },
+      {
+        to: "/schedule",
+        text: "Schedule",
+        icon: "mdi-calendar"
+      },
+      {
+        to: "/trackers",
+        text: "Trackers",
+        icon: "mdi-apps"
+      },
+      {
+        to: "/wellness-plan/1",
+        text: "Wellness Plan",
+        icon: "mdi-spa"
+      },
+      {
+        to: "/giving-back",
+        text: "Giving Back",
+        icon: "mdi-charity"
+      },
+      {
+        to: "/ntention-setter-access",
+        text: "NTENTION Setter Access",
+        icon: "mdi-ticket-percent"
+      },
+      {
+        to: "/my-ntention-setters",
+        text: "My NTENTION Setters",
+        icon: "mdi-ticket-percent"
+      },
+      {
+        to: "/settings",
+        text: "Settings",
+        icon: "mdi-account-box"
+      }
+    ]
+  }),
+  beforeDestroy() {
+    if (typeof window !== "undefined") {
+      window.removeEventListener("resize", this.onResize, { passive: true });
+    }
+  },
+
+  mounted() {
+    this.onResize();
+    window.addEventListener("resize", this.onResize, { passive: true });
+  },
+
+  methods: {
+    onResize() {
+      this.isMobile = window.innerWidth < 600;
+    },
+    handleNavItemCLick() {
+      if (this.isMobile) {
+        this.drawer = false;
+      }
+    }
+  }
 };
 </script>
 
