@@ -53,8 +53,8 @@
       <v-card class="my-plan-card mt-4">
         <v-card-text v-if="editMode">
           <v-text-field
-            v-model="myPlan.my_intension"
-            label="MY INTENSION"
+            v-model="myPlan.my_ntension"
+            label="MY NTENSION"
           ></v-text-field>
 
           <v-text-field
@@ -74,9 +74,9 @@
         </v-card-text>
         <v-card-text v-else>
           <p>
-            <strong>MY INTENSION:</strong>
+            <strong>MY NTENSION:</strong>
 
-            {{ myPlan.my_intension }}
+            {{ myPlan.my_ntension }}
           </p>
           <p>
             <strong>WHERE AM I NOW:</strong>
@@ -106,8 +106,8 @@
           ></v-text-field>
 
           <v-text-field
-            v-model="myPlan.maintenence"
-            label="MAINTENENCE"
+            v-model="myPlan.maintenance"
+            label="MAINTENANCE"
           ></v-text-field>
 
           <v-text-field
@@ -125,8 +125,8 @@
             {{ myPlan.reward_strategies }}
           </p>
           <p>
-            <strong>MAINTENENCE:</strong>
-            {{ myPlan.maintenence }}
+            <strong>MAINTENANCE:</strong>
+            {{ myPlan.maintenance }}
           </p>
           <p>
             <strong>SUPPORTS:</strong>

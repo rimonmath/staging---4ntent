@@ -15,8 +15,8 @@
     <v-card class="my-plan-card mt-4">
       <v-card-text>
         <p>
-          <strong>MY INTENSION:</strong>
-          {{ plan.my_intension }}
+          <strong>MY NTENSION:</strong>
+          {{ plan.my_ntension }}
         </p>
         <p>
           <strong>WHERE AM I NOW:</strong>
@@ -44,8 +44,8 @@
           {{ plan.reward_strategies }}
         </p>
         <p>
-          <strong>MAINTENENCE:</strong>
-          {{ plan.maintenence }}
+          <strong>MAINTENANCE:</strong>
+          {{ plan.maintenance }}
         </p>
         <p>
           <strong>SUPPORTS:</strong>
